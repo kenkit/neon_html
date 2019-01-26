@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProgressComponent } from './progress/progress.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,7 @@ import { ProgressComponent } from './progress/progress.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule, 
+    FormsModule, ReactiveFormsModule, NgxSpinnerModule,
     NgbModule.forRoot()
   ],
   providers: [ ],

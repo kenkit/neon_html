@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { WebsocketService } from './websocket.service';
 import {  RecvService } from './recv.service';
 import { Observable } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({ 
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +10,8 @@ import { Observable } from 'rxjs';
   providers: [ WebsocketService, RecvService  ]
   
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+ 
   title = 'Neon';
   progress: Observable<number>;
 
@@ -19,7 +21,7 @@ export class AppComponent {
     });
     }
 
-  constructor(private recvService: RecvService) {
+  constructor(private recvService: RecvService,private spinner: NgxSpinnerService) {
 		recvService.messages.subscribe(msg => {			
       console.log("Response from websocket: " + msg);
       this.progress =this.setprogress(msg.progress_val);
@@ -41,5 +43,16 @@ export class AppComponent {
 		this.message.message = '';
 
   }
+  
+  ngOnInit() {
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 15000);
+  }
+  
 
 }

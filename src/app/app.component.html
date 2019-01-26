@@ -1,17 +1,17 @@
-<h3>{{title}}</h3>
+<div id="demotext">{{title}}</div>
 <ngb-tabset type="pills">
   <ngb-tab >
     <ng-template ngbTabTitle><b>Gadget Central</b></ng-template>
     <ng-template ngbTabContent>
         <div id="prgsize"style="height: 300px;">
-              <table  id="table" >
+              <table  id="table"  class="greenTable" >
                   <th>
                       <app-progress [value]="progress | async"></app-progress>
                   </th>
                     <th valign="top">
                       <br><br><br>
                         <div id="terminal"></div>
-                        <button (click)="sendMsg()">Send Message</button>
+                        <button (click)="sendMsg()" >Send Message</button>
                   </th>
                   </table>
               </div>
@@ -38,3 +38,14 @@
   </ngb-tab>
 </ngb-tabset>
 <div id="particles-js"></div>
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "#1f1e1e"
+size = "medium"
+color = "#fff"
+type = "ball-clip-rotate-pulse"
+fullScreen = "true"
+>
+<p style="color: white" > <br>Loading Neon project </p>
+</ngx-spinner>
