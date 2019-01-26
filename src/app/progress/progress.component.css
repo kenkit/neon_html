@@ -29,3 +29,9 @@
   stroke: #4CAF50;
   transition: all 100ms;
 }
+#canvas {
+  display:block;
+  margin:5vh auto;
+  border-radius:50%;
+  box-shadow: 0 5px 14px black;
+}

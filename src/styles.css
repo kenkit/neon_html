@@ -3,12 +3,13 @@
 body{
     
     /*background-image: url("assets\156411-otaku-wallpaper-1920x1200-xiaomi.jpg");*/
-    background-color:rgb(39,44,56);
     background-repeat: no-repeat;
     background-size: cover;
     overflow-y: hidden;
     overflow-x: hidden;
-    color: rgb(159,173,189 )
+    color: rgb(159,173,189 );
+    background:rgb(59, 1, 1);
+    
 }
 #terminal {
     overflow-y: scroll;
