@@ -1,5 +1,6 @@
+<h3>{{title}}</h3>
 <ngb-tabset type="pills">
-  <ngb-tab>
+  <ngb-tab >
     <ng-template ngbTabTitle><b>Gadget Central</b></ng-template>
     <ng-template ngbTabContent>
         <div id="selector" class="btn-group mr-3" class="row justify-content-center" >
@@ -16,24 +17,21 @@
   <ngb-tab>
     <ng-template ngbTabTitle><b>Transfer Operations</b></ng-template>
     <ng-template ngbTabContent>
-      Transfering files
-      <br>
-        <p><ngb-progressbar value="250" showValue="true" ></ngb-progressbar></p>
-        <ejs-chart id="chart-container" [primaryXAxis]="primaryXAxis"  width='650px' height='300px'>
-
-            <e-series-collection>
-            
-            <e-series [dataSource]="chartData" type="Line" xName="year" yName="gold" name="Gold">
-            
-            </e-series> 
-            
-            </e-series-collection>
-            
-            </ejs-chart>
+      <br><div id="prgsize"style="height: 300px;">
+         
+          <table  id="table" >
+              <th>
+                  <app-progress [value]="progress | async"></app-progress>
+              </th>
+                <th>
+                    <div id="terminal"></div>
+              </th>
+              </table>
+          </div>
     </ng-template>
   </ngb-tab>
-  <ngb-tab [disabled]="true">
-    <ng-template ngbTabTitle><b>Player</b></ng-template>
+  <ngb-tab [disabled]="false">
+    <ng-template ngbTabTitle><b>About Neon</b></ng-template>
     <ng-template ngbTabContent>
     </ng-template>
   </ngb-tab>

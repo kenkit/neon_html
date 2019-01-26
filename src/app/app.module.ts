@@ -5,21 +5,20 @@ import { FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ChartComponent } from './chart/chart.component';
-import { ChartModule } from '@syncfusion/ej2-ng-charts';
-import { CategoryService, ColumnSeriesService } from '@syncfusion/ej2-ng-charts';
+import { ProgressComponent } from './progress/progress.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ChartComponent
+    ProgressComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule, ChartModule,
+    FormsModule, ReactiveFormsModule, 
     NgbModule.forRoot()
   ],
-  providers: [CategoryService, ColumnSeriesService ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,3 +3,6 @@ html {
     overflow-y: hidden;
     overflow-x: hidden;
 }
+#prgsize {
+    background-color:cornflowerblue;
+}
