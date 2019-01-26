@@ -4,7 +4,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
   selector: 'app-progress',
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.css']
-})
+}) 
 export class ProgressComponent implements OnInit, OnChanges {
   @Input() value: number;
   radius = 54;

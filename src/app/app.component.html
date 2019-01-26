@@ -3,36 +3,45 @@
   <ngb-tab >
     <ng-template ngbTabTitle><b>Gadget Central</b></ng-template>
     <ng-template ngbTabContent>
-        <div id="selector" class="btn-group mr-3" class="row justify-content-center" >
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="btn btn-outline-danger" ngbDropdownToggle>Choose Your Devices Brand</button>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">Techno</button>
-                <button class="dropdown-item">Infinix</button>
+        <div id="prgsize"style="height: 300px;">
+              <table  id="table" >
+                  <th>
+                      <app-progress [value]="progress | async"></app-progress>
+                  </th>
+                    <th>
+                        <div id="terminal"></div>
+                        <div id="selector" class="btn-group mr-3" class="row justify-content-center" >
+                            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                              <button class="btn btn-outline-danger" ngbDropdownToggle>Choose Your Devices Brand</button>
+                              <div class="dropdown-menu" ngbDropdownMenu>
+                                <button class="dropdown-item">Techno</button>
+                                <button class="dropdown-item">Infinix</button>
+                              </div>
+                            </div>
+                      
+                        </div>
+                  </th>
+                  </table>
               </div>
-            </div>
-        </div>
-    </ng-template>
+              
+        </ng-template>
+   
   </ngb-tab>
   <ngb-tab>
     <ng-template ngbTabTitle><b>Transfer Operations</b></ng-template>
     <ng-template ngbTabContent>
-      <br><div id="prgsize"style="height: 300px;">
-         
-          <table  id="table" >
-              <th>
-                  <app-progress [value]="progress | async"></app-progress>
-              </th>
-                <th>
-                    <div id="terminal"></div>
-              </th>
-              </table>
-          </div>
+
     </ng-template>
   </ngb-tab>
   <ngb-tab [disabled]="false">
     <ng-template ngbTabTitle><b>About Neon</b></ng-template>
     <ng-template ngbTabContent>
+        <div id="prgsize"style="height: 300px;">
+            <h4>Maintainer:Sage</h4>
+            <h4>Neon version:1.920020<br></h4>
+            <h4>Build id:1.12232</h4>
+            <h4>Build data:12/12/2020</h4>
+        </div>
     </ng-template>
   </ngb-tab>
 </ngb-tabset>
