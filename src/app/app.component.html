@@ -10,16 +10,7 @@
                   </th>
                     <th>
                         <div id="terminal"></div>
-                        <div id="selector" class="btn-group mr-3" class="row justify-content-center" >
-                            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                              <button class="btn btn-outline-danger" ngbDropdownToggle>Choose Your Devices Brand</button>
-                              <div class="dropdown-menu" ngbDropdownMenu>
-                                <button class="dropdown-item">Techno</button>
-                                <button class="dropdown-item">Infinix</button>
-                              </div>
-                            </div>
-                      
-                        </div>
+                        <button (click)="sendMsg()">Send Message</button>
                   </th>
                   </table>
               </div>
