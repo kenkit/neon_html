@@ -1,0 +1,13 @@
+<div id="prgsize"style="height: 300px;">
+
+    <h2>Choose your model</h2>
+    <br>
+    <mat-form-field>
+            <mat-select placeholder="Gadget">
+              <mat-option *ngFor="let device of devices" [value]="device.id">
+                {{device.brand.name}}
+              </mat-option>
+            </mat-select>
+            
+          </mat-form-field>
+</div>

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProgressComponent } from './progress/progress.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { DeviceSelectComponent } from './device-select/device-select.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import {
@@ -20,12 +19,15 @@ import {
   MatFormFieldModule,
   MatSelectModule,
 } from '@angular/material';
+import { DeviceDetailsComponent } from './device-details/device-details.component';
+import { DeviceBrandsComponent } from './device-brands/device-brands.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressComponent,
-    DeviceSelectComponent,
+    DeviceDetailsComponent,
+    DeviceBrandsComponent,
   ],
   imports: [
     BrowserModule,
