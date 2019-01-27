@@ -18,6 +18,10 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatSelectModule,
+  MatTooltipModule,
+  MatStepperModule,
+  MatInputModule,
+  
 } from '@angular/material';
 import { DeviceDetailsComponent } from './device-details/device-details.component';
 import { DeviceBrandsComponent } from './device-brands/device-brands.component';
@@ -44,6 +48,9 @@ import { DeviceBrandsComponent } from './device-brands/device-brands.component';
     MatFormFieldModule,
     MatSelectModule,
     NoopAnimationsModule,
+    MatTooltipModule,
+    MatStepperModule,
+    MatInputModule,
 
     NgbModule.forRoot(),
   ],
@@ -57,6 +64,9 @@ import { DeviceBrandsComponent } from './device-brands/device-brands.component';
     MatFormFieldModule,
     MatSelectModule,
     NoopAnimationsModule,
+    MatTooltipModule,
+    MatStepperModule,
+    MatInputModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

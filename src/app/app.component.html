@@ -3,14 +3,12 @@
   <ngb-tab >
     <ng-template ngbTabTitle><b>Gadget Central</b></ng-template>
     <ng-template ngbTabContent>
-        <div id="prgsize"style="height: 300px;">
+
               <table  id="table"  class="greenTable" >
                   <th>
-                      <app-device-details></app-device-details>
+                      <app-device-brands></app-device-brands>
                   </th>
-                  <tr></tr><tr></tr>
                   </table>
-              </div>
               
         </ng-template>
    
@@ -18,19 +16,21 @@
   <ngb-tab>
     <ng-template ngbTabTitle><b>Transfer Operations</b></ng-template>
     <ng-template ngbTabContent>
-        <div id="prgsize"style="height: 300px;">
+       
             <table  id="table"  class="greenTable" >
                 <th>
                     Currently downloading
                 </th>
+                <th><app-progress></app-progress>
+                </th>
                 </table>
-            </div>
+
     </ng-template>
   </ngb-tab>
   <ngb-tab [disabled]="false">
     <ng-template ngbTabTitle><b>About Neon</b></ng-template>
     <ng-template ngbTabContent>
-        <div id="prgsize"style="height: 300px;">
+      
             <table  id="table"  class="greenTable" >
                 <th >
             <h4>Maintainer:Sage</h4>
@@ -39,7 +39,7 @@
             <h4>Build data:12/12/2020</h4>
                 </th>
                 </table>
-            </div>
+ 
         
     </ng-template>
   </ngb-tab>

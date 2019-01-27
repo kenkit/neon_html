@@ -3,7 +3,7 @@ import { WebsocketService } from './websocket.service';
 import {  RecvService } from './recv.service';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export interface Food {
   value: string;
   viewValue: string;
@@ -19,14 +19,13 @@ export interface Food {
 
 export class AppComponent implements OnInit{
  
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+
   title = 'Neon';
   progress: Observable<number>;
   
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  
 
   setprogress(val){
      return new Observable<number>(observer => {
@@ -34,7 +33,7 @@ export class AppComponent implements OnInit{
     });
     }
 
-  constructor(private recvService: RecvService,private spinner: NgxSpinnerService) {
+  constructor(private recvService: RecvService,private spinner: NgxSpinnerService,private _formBuilder: FormBuilder) {
 		recvService.messages.subscribe(msg => {			
       console.log("Response from websocket: " + msg);
       this.progress =this.setprogress(msg.progress_val);
@@ -56,7 +55,7 @@ export class AppComponent implements OnInit{
 		this.message.message = '';
 
   }
-  
+  isOptional = false;
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
@@ -64,8 +63,18 @@ export class AppComponent implements OnInit{
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 5000);
+    }, 1000);
+
+    
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ''
+    });
+
+
+  }
   }
   
 
-}

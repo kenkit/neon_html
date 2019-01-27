@@ -1,13 +1,15 @@
-<div id="prgsize"style="height: 300px;">
 
     <h2>Choose your model</h2>
-    <br>
+    <form >
     <mat-form-field>
             <mat-select placeholder="Gadget">
               <mat-option *ngFor="let device of devices" [value]="device.id">
-                {{device.brand.name}}
+                  {{device.model}}
               </mat-option>
             </mat-select>
             
           </mat-form-field>
-</div>
+          <div class="example-button-row">
+              <button  matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
+            </div>
+    </form>

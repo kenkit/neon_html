@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Brand} from './device-brands';
 import { BRANDS} from './device-brands-mock';
 @Component({
   selector: 'app-device-brands',
@@ -12,5 +14,10 @@ export class DeviceBrandsComponent implements OnInit {
   ngOnInit() {
   }
   brands = BRANDS;
+
+selectedBrand: Brand;
+onSelect(brand: Brand): void {
+  this.selectedBrand = brand;
+}
 
 }
