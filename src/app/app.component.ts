@@ -3,6 +3,12 @@ import { WebsocketService } from './websocket.service';
 import {  RecvService } from './recv.service';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+export interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({ 
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +16,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
   providers: [ WebsocketService, RecvService  ]
   
 })
+
 export class AppComponent implements OnInit{
  
   title = 'Neon';
   progress: Observable<number>;
+  
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 
   setprogress(val){
      return new Observable<number>(observer => {
@@ -51,7 +64,7 @@ export class AppComponent implements OnInit{
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 15000);
+    }, 5000);
   }
   
 

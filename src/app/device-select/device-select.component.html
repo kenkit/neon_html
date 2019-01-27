@@ -1,0 +1,12 @@
+<div id="prgsize"style="height: 300px;">
+
+        <h2>Choose your brand</h2>
+        <br>
+        <mat-form-field>
+                <mat-select placeholder="Device Brand">
+                  <mat-option *ngFor="let brand of brands" [value]="brand.value">
+                    {{brand.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+    </div>

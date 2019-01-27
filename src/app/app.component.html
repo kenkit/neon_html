@@ -6,13 +6,9 @@
         <div id="prgsize"style="height: 300px;">
               <table  id="table"  class="greenTable" >
                   <th>
-                      <app-progress [value]="progress | async"></app-progress>
+                      <app-device-select></app-device-select>
                   </th>
-                    <th valign="top">
-                      <br><br><br>
-                        <div id="terminal"></div>
-                        <button (click)="sendMsg()" >Send Message</button>
-                  </th>
+                  <tr></tr><tr></tr>
                   </table>
               </div>
               
@@ -22,18 +18,29 @@
   <ngb-tab>
     <ng-template ngbTabTitle><b>Transfer Operations</b></ng-template>
     <ng-template ngbTabContent>
-
+        <div id="prgsize"style="height: 300px;">
+            <table  id="table"  class="greenTable" >
+                <th>
+                    Currently downloading
+                </th>
+                </table>
+            </div>
     </ng-template>
   </ngb-tab>
   <ngb-tab [disabled]="false">
     <ng-template ngbTabTitle><b>About Neon</b></ng-template>
     <ng-template ngbTabContent>
         <div id="prgsize"style="height: 300px;">
+            <table  id="table"  class="greenTable" >
+                <th>
             <h4>Maintainer:Sage</h4>
             <h4>Neon version:1.920020<br></h4>
             <h4>Build id:1.12232</h4>
             <h4>Build data:12/12/2020</h4>
-        </div>
+                </th>
+                </table>
+            </div>
+        
     </ng-template>
   </ngb-tab>
 </ngb-tabset>
@@ -47,5 +54,5 @@ color ="#e423dd"
 type = "ball-clip-rotate-pulse"
 fullScreen = "true"
 >
-<p style="color: white" > <br>Loading Neon project </p>
+<p style="color: white" > <br>Loading Neon Project </p>
 </ngx-spinner>

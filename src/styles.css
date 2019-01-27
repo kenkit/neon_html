@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body{
     
     /*background-image: url("assets\156411-otaku-wallpaper-1920x1200-xiaomi.jpg");*/
@@ -15,7 +16,6 @@ body{
 #terminal {
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color:blue;
     width: 450px;
     height: 100px; /* <- fixed height */
     font-size: 16px;
