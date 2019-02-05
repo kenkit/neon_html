@@ -23,6 +23,7 @@ import {
   MatInputModule,
   MatCheckboxModule,
   MatListModule,
+  MatProgressBarModule
 } from '@angular/material';
 import { FlashOptionComponent } from './flash-option/flash-option.component';
 
@@ -52,6 +53,7 @@ import { FlashOptionComponent } from './flash-option/flash-option.component';
     MatInputModule,
     MatCheckboxModule,
     MatListModule,
+    MatProgressBarModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

@@ -47,4 +47,10 @@ fullScreen = "true"
 </p>
 <div id="message" style="color: white" > {{loading_message}}
 </div>
+<mat-progress-bar style="width: auto"
+class="loading_bar"
+[color]="color"
+[mode]="determinate"
+[value]="loading_bar_value">
+</mat-progress-bar>
 </ngx-spinner>

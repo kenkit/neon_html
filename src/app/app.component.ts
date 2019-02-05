@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   flash_options = false;
   current_window = 1;
   loading_message = "Connecting to service";
+  loading_bar_value = 0;
   setprogress(val){
      return new Observable<number>(observer => {
       observer.next(val);
@@ -66,6 +67,7 @@ export class AppComponent implements OnInit {
         this.flash_options = false;
         this.spinner.show();
         this.loading_message = msg.message;
+        this.loading_bar_value = msg.progress_val;
       }
       else
       {
