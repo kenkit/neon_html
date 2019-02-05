@@ -7,11 +7,8 @@
           {{flash_option.name}}
         </mat-list-option>
       </mat-selection-list>
-      <p>
-          Options selected: {{option.selectedOptions.selected.length}}
-        </p>
-
     <div class="example-button-row">
         <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
       </div>
+      Options selected: {{option.selectedOptions.selected.length}}
 </form>

@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   show_details = false;
   flash_options = false;
   current_window = 1;
+  loading_message = "Connecting to service";
   setprogress(val){
      return new Observable<number>(observer => {
       observer.next(val);
@@ -31,31 +32,44 @@ export class AppComponent implements OnInit {
       this.progress = this.setprogress(msg.progress_val);
 
       if (msg.current_window === 1) {
+        this.spinner.hide();
         this.show_progress =false;
         this.show_brands = true;
         this.show_details = false;
         this.flash_options = false;
       }
       else if (msg.current_window === 2) {
+        this.spinner.hide();
         this.show_progress = false;
         this.show_brands = false;
         this.show_details = true;
         this.flash_options = false;
       }
       else if (msg.current_window === 3) {
+        this.spinner.hide();
         this.show_progress = false;
         this.show_brands = false;
         this.show_details = false;
         this.flash_options = true;
       }
       else if (msg.current_window === 4) {
+        this.spinner.hide();
         this.show_progress =true;
         this.show_brands = false;
         this.show_details = false;
         this.flash_options = false;
+      } else if (msg.current_window === 5) {
+        this.spinner.hide();
+        this.show_progress = true;
+        this.show_brands = false;
+        this.show_details = false;
+        this.flash_options = false;
+        this.spinner.show();
+        this.loading_message = msg.message;
       }
       else
       {
+        this.spinner.show();
         this.show_progress =false;
         this.show_brands = false;
         this.show_details = false;
@@ -81,18 +95,18 @@ export class AppComponent implements OnInit {
 		this.recvService.messages.next(this.devices_s);
 		this.devices_s.message = '';
     this.devices_s.current_window++;
-    if (this.devices_s.current_window > 3)
+    if (this.devices_s.current_window > 5)
     this.devices_s.current_window = 1;
   }
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
- 
+
+ /** 
     setTimeout(() => {
-        /** spinner ends after 5 seconds */
         this.spinner.hide();
     }, 5000);
-
+    */
     
 
     if (this.current_window === 1) {
