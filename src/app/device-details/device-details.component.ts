@@ -10,7 +10,7 @@ import {  RecvService } from './../recv.service';
 })
 export class DeviceDetailsComponent implements OnInit {
   private devices_s = {
-		author: 'tutorialedge',
+		author: 'details',
     message: 'this is a test message',
     progress_val: 0,
     current_window:3
@@ -36,11 +36,17 @@ export class DeviceDetailsComponent implements OnInit {
       brand:BRANDS[3]},
     
   ];
+  selectedDevice: Device;
+  onChange(event) {
+  
+    this.selectedDevice = this.devices[event.source.value - 1];
+    console.log(this.selectedDevice );
+  }
   
 /*{"author":"tutorialedge","message":"","progress_val":1,"current_window":1} */
 next() {
-  console.log('new message from device brands : ', this.devices_s);
+  console.log('new message from device details : ', this.devices_s);
   this.recvService.messages.next(this.devices_s);
-  this.devices_s.message = 'Received message from brand select';
+  this.devices_s.message =JSON.stringify(this.selectedDevice);
 }
 }

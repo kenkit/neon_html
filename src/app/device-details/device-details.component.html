@@ -3,7 +3,7 @@
     <h2>Choose your model</h2>
     <form >
     <mat-form-field>
-            <mat-select placeholder="Gadget">
+            <mat-select placeholder="Gadget" (selectionChange)="onChange($event)" >
               <mat-option *ngFor="let device of devices" [value]="device.id">
                   {{device.model}}
               </mat-option>

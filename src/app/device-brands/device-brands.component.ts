@@ -15,8 +15,8 @@ export class DeviceBrandsComponent implements OnInit {
     
   }
   private devices_s = {
-		author: 'tutorialedge',
-    message: 'this is a test message',
+		author: 'brands',
+    message: '',
     progress_val: 0,
     current_window:2
 	}
@@ -24,15 +24,18 @@ export class DeviceBrandsComponent implements OnInit {
   }
   brands = BRANDS;
 
-selectedBrand: Brand;
-onSelect(brand: Brand): void {
-  this.selectedBrand = brand;
+  selectedBrand: Brand;
+  
+onChange(event) {
+  
+  this.selectedBrand = this.brands[event.source.value - 1];
+  console.log(this.selectedBrand );
 }
 
 /*{"author":"tutorialedge","message":"","progress_val":1,"current_window":1} */
 next() {
   console.log('new message from device brands : ', this.devices_s);
   this.recvService.messages.next(this.devices_s);
-  this.devices_s.message = 'Received message from brand select';
+  this.devices_s.message =JSON.stringify(this.selectedBrand);
 }
 }
