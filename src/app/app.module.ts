@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProgressComponent } from './progress/progress.component';
 import { DeviceSelectComponent } from './device-select/device-select.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,8 @@ import { DeviceSelectComponent } from './device-select/device-select.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule, ReactiveFormsModule, 
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

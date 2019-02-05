@@ -3,6 +3,7 @@ import { WebsocketService } from './websocket.service';
 import {  RecvService } from './recv.service';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({ 
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +11,7 @@ import { FormControl } from '@angular/forms';
   providers: [ WebsocketService, RecvService  ]
   
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Neon';
   progress: Observable<number>;
   show_progress = false;
@@ -20,7 +21,7 @@ export class AppComponent {
     });
     }
 
-  constructor(private recvService: RecvService) {
+  constructor(private recvService: RecvService,private spinner: NgxSpinnerService) {
 		recvService.messages.subscribe(msg => {			
       console.log("Response from websocket: " + msg);
       this.progress = this.setprogress(msg.progress_val);
@@ -47,6 +48,15 @@ export class AppComponent {
 		this.recvService.messages.next(this.message);
 		this.message.message = '';
 
+  }
+  ngOnInit() {
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 5000);
   }
   
 
