@@ -1,6 +1,9 @@
 
     <h2>Choose your brand</h2>
     <form >
+        <table  id="flashcontent" >
+          <th></th>
+            <th>
     <mat-form-field >
             <mat-select (selectionChange)="onChange($event)" matTooltipPosition="right" matTooltip="Choose the manufacturer e.g Techno"  placeholder="Device Brand">
               <mat-option *ngFor="let brand of brands" [value]="brand.id" name="brand_sl">
@@ -8,9 +11,14 @@
               </mat-option>
             </mat-select>
           </mat-form-field>  
-          <p></p>
-            <div class="example-button-row">
-                <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
-              </div>
+
+              <div class="example-button-row" layout-align="center center" >
+                  <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
+                </div>
+            
+        </th>
+            <th></th>
+       
+            </table>
     </form>
   
