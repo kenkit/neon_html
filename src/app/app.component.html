@@ -7,10 +7,11 @@
               <table  id="table" >
                   <th>
                       <app-progress [hidden]="!show_progress" [value]="progress | async"></app-progress>
-                    </th>
+                      <app-device-brands [hidden]="!show_brands" ></app-device-brands>
+                      <app-device-details [hidden]="!show_details"></app-device-details>
+                    </th>         
                   </table>
-              </div>
-              
+              </div>   
         </ng-template>
    
   </ngb-tab>

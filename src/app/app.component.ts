@@ -14,7 +14,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AppComponent implements OnInit {
   title = 'Neon';
   progress: Observable<number>;
-  show_progress = false;
+  show_progress = false; 
+  show_brands = false;
+  show_details = false;
+  current_window = 1;
   setprogress(val){
      return new Observable<number>(observer => {
       observer.next(val);
@@ -26,28 +29,54 @@ export class AppComponent implements OnInit {
       console.log("Response from websocket: " + msg);
       this.progress = this.setprogress(msg.progress_val);
 
-      if(msg.current_window===2)
+      if (msg.current_window === 1) {
+        this.show_progress =false;
+        this.show_brands = true;
+        this.show_details = false;
+      }
+      else if (msg.current_window === 2) {
+        this.show_progress = false;
+        this.show_brands = false;
+        this.show_details = true;
+      }
+      else if (msg.current_window === 3) {
         this.show_progress = true;
+        this.show_brands = false;
+        this.show_details = false;
+      }
+      else if (msg.current_window === 4) {
+        this.show_progress = true;
+        this.show_brands = false;
+        this.show_details = false;
+      }
       else
-      this.show_progress = false;
+      {
+        this.show_progress =false;
+        this.show_brands = false;
+        this.show_details = false;
+      }
+      this.current_window = msg.current_window;
 		});
    
 	}
 
 
 
-  private message = {
+  private devices_s = {
 		author: 'tutorialedge',
     message: 'this is a test message',
     progress_val: 0,
-    current_window:0
+    current_window:2
 	}
 /*{"author":"tutorialedge","message":"","progress_val":1,"current_window":1} */
-  sendMsg() {
-		console.log('new message from client to websocket: ', this.message);
-		this.recvService.messages.next(this.message);
-		this.message.message = '';
+  next() {
 
+		console.log('new message from client to websocket: ', this.devices_s);
+		this.recvService.messages.next(this.devices_s);
+		this.devices_s.message = '';
+    this.devices_s.current_window++;
+    if (this.devices_s.current_window > 3)
+    this.devices_s.current_window = 1;
   }
   ngOnInit() {
     /** spinner starts on init */
@@ -57,6 +86,35 @@ export class AppComponent implements OnInit {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
     }, 5000);
+
+    
+
+    if (this.current_window === 1) {
+      this.show_progress =false;
+      this.show_brands = true;
+      this.show_details = false;
+    }
+    else if (this.current_window === 2) {
+      this.show_progress = false;
+      this.show_brands = false;
+      this.show_details = true;
+    }
+    else if (this.current_window === 3) {
+      this.show_progress = true;
+      this.show_brands = false;
+      this.show_details = false;
+    }
+    else if (this.current_window === 4) {
+      this.show_progress = true;
+      this.show_brands = false;
+      this.show_details = false;
+    }
+    else
+    {
+      this.show_progress =false;
+      this.show_brands = false;
+      this.show_details = false;
+    }
   }
   
 

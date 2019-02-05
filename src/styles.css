@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body{
     
     background-image: url("assets\156411-otaku-wallpaper-1920x1200-xiaomi.jpg");
@@ -20,3 +21,4 @@ body{
     line-height: 17px; /* <- initial line-height */
     text-overflow: ellipsis;
   }
+

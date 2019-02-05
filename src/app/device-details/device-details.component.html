@@ -1,0 +1,17 @@
+
+
+    <h2>Choose your model</h2>
+    <form >
+    <mat-form-field>
+            <mat-select placeholder="Gadget">
+              <mat-option *ngFor="let device of devices" [value]="device.id">
+                  {{device.model}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p></p>
+            <div class="example-button-row">
+                <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
+              </div>
+    </form>
+  
