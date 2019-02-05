@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { WebsocketService } from './websocket.service';
 import {  RecvService } from './recv.service';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 @Component({ 
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -34,7 +35,7 @@ export class AppComponent {
     message: 'this is a test message',
     progress_val:0
 	}
-
+/*{"author":"tutorialedge","message":"","progress_val":1} */
   sendMsg() {
 		console.log('new message from client to websocket: ', this.message);
 		this.recvService.messages.next(this.message);

@@ -21,7 +21,7 @@ export class ProgressComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.value.currentValue !== changes.value.previousValue) {
       this.progress(changes.value.currentValue);
-      this.renderTime();
+      this.renderTime(changes.value.currentValue);
     }
   }
 
@@ -34,7 +34,7 @@ export class ProgressComponent implements OnInit, OnChanges {
     return degree*factor;
   }
   
-  private renderTime() {
+  private renderTime(progress_val) {
     var canvas : any = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     ctx.strokeStyle = '#28d1fa';
@@ -43,10 +43,9 @@ export class ProgressComponent implements OnInit, OnChanges {
     ctx.lineCap = 'round';
     ctx.shadowBlur = 15;
     ctx.shadowColor = '#28d1fa';
-    var now = new Date();
-    var seconds = now.getSeconds();
-    var milliseconds = now.getMilliseconds();
-    var newSeconds = seconds+ (milliseconds/1000);
+    var newSeconds = 0;
+
+    newSeconds = (progress_val / 100) * 60;
     var gradient: any;
 
     // Background
@@ -69,7 +68,7 @@ ctx.arc(125, 125, 110, this.degToRad(270), this.degToRad((newSeconds*6)-90));
   // Time
   ctx.font = "15px Helvetica";
   ctx.fillStyle = '#28d1fa';
-  ctx.fillText("Remaining "+Math.round(newSeconds/60*100)+"%:"+newSeconds,  50, 140);
+  ctx.fillText("Remaining "+Math.round(newSeconds/60*100)+"%:",  50, 140);
   
     
   }

@@ -2,13 +2,12 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 body{
     
-    /*background-image: url("assets\156411-otaku-wallpaper-1920x1200-xiaomi.jpg");*/
+    background-image: url("assets\156411-otaku-wallpaper-1920x1200-xiaomi.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     overflow-y: hidden;
     overflow-x: hidden;
-    color: rgb(159,173,189 );
-    background:rgb(59, 1, 1);
+    color: rgb(6, 34, 66);
     
 }
 #terminal {
