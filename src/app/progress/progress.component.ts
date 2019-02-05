@@ -44,7 +44,10 @@ export class ProgressComponent implements OnInit, OnChanges {
     ctx.shadowBlur = 15;
     ctx.shadowColor = '#28d1fa';
     var newSeconds = 0;
-
+    var oldprogress = progress_val;
+ 
+    if (progress_val === 100)
+      progress_val = 99;
     newSeconds = (progress_val / 100) * 60;
     var gradient: any;
 
@@ -57,7 +60,7 @@ export class ProgressComponent implements OnInit, OnChanges {
   
   // Seconds
    ctx.beginPath();
-ctx.arc(125, 125, 110, this.degToRad(270), this.degToRad((newSeconds*6)-90));
+ctx.arc(125, 125, 110, this.degToRad(280), this.degToRad((newSeconds*6)-80));
   
   ctx.stroke();
   // Date 
@@ -68,7 +71,7 @@ ctx.arc(125, 125, 110, this.degToRad(270), this.degToRad((newSeconds*6)-90));
   // Time
   ctx.font = "15px Helvetica";
   ctx.fillStyle = '#28d1fa';
-  ctx.fillText("Remaining "+Math.round(newSeconds/60*100)+"%:",  50, 140);
+  ctx.fillText("Status "+oldprogress+"%",  50, 140);
   
     
   }

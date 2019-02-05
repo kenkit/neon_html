@@ -6,8 +6,8 @@
         <div id="prgsize"style="height: 300px;">
               <table  id="table" >
                   <th>
-                      <app-progress [value]="progress | async"></app-progress>
-                  </th>
+                      <app-progress [hidden]="!show_progress" [value]="progress | async"></app-progress>
+                    </th>
                   </table>
               </div>
               

@@ -7,7 +7,8 @@ const CHAT_URL = 'ws://localhost:9999';
 export interface Message {
 	author: string,
 	message: string,
-  progress_val: number
+	progress_val: number,
+	current_window:number
 }
 
 @Injectable()
@@ -23,7 +24,8 @@ export class RecvService {
 				return {
 					author: data.author,
 					message: data.message,
-          progress_val:data.progress_val
+					progress_val: data.progress_val,
+					current_window: data.current_window
 				}
 			});
 	}

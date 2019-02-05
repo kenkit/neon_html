@@ -13,7 +13,7 @@ import { FormControl } from '@angular/forms';
 export class AppComponent {
   title = 'Neon';
   progress: Observable<number>;
-
+  show_progress = false;
   setprogress(val){
      return new Observable<number>(observer => {
       observer.next(val);
@@ -23,7 +23,12 @@ export class AppComponent {
   constructor(private recvService: RecvService) {
 		recvService.messages.subscribe(msg => {			
       console.log("Response from websocket: " + msg);
-      this.progress =this.setprogress(msg.progress_val);
+      this.progress = this.setprogress(msg.progress_val);
+
+      if(msg.current_window===2)
+        this.show_progress = true;
+      else
+      this.show_progress = false;
 		});
    
 	}
@@ -33,14 +38,16 @@ export class AppComponent {
   private message = {
 		author: 'tutorialedge',
     message: 'this is a test message',
-    progress_val:0
+    progress_val: 0,
+    current_window:0
 	}
-/*{"author":"tutorialedge","message":"","progress_val":1} */
+/*{"author":"tutorialedge","message":"","progress_val":1,"current_window":1} */
   sendMsg() {
 		console.log('new message from client to websocket: ', this.message);
 		this.recvService.messages.next(this.message);
 		this.message.message = '';
 
   }
+  
 
 }
