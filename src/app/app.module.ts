@@ -20,18 +20,22 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatSelectModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatListModule,
 } from '@angular/material';
+import { FlashOptionComponent } from './flash-option/flash-option.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressComponent,
-    DeviceDetailsComponent ,DeviceBrandsComponent
+    DeviceDetailsComponent ,DeviceBrandsComponent, FlashOptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule, 
+    FormsModule,
     NgbModule.forRoot(),
     NgxSpinnerModule,
 
@@ -44,8 +48,10 @@ import {
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
-    NoopAnimationsModule
-
+    NoopAnimationsModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatListModule,
   ],
   providers: [ ],
   bootstrap: [AppComponent]

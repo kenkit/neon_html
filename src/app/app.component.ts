@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   show_progress = false; 
   show_brands = false;
   show_details = false;
+  flash_options = false;
   current_window = 1;
   setprogress(val){
      return new Observable<number>(observer => {
@@ -33,27 +34,32 @@ export class AppComponent implements OnInit {
         this.show_progress =false;
         this.show_brands = true;
         this.show_details = false;
+        this.flash_options = false;
       }
       else if (msg.current_window === 2) {
         this.show_progress = false;
         this.show_brands = false;
         this.show_details = true;
+        this.flash_options = false;
       }
       else if (msg.current_window === 3) {
-        this.show_progress = true;
+        this.show_progress = false;
         this.show_brands = false;
         this.show_details = false;
+        this.flash_options = true;
       }
       else if (msg.current_window === 4) {
-        this.show_progress = true;
+        this.show_progress =true;
         this.show_brands = false;
         this.show_details = false;
+        this.flash_options = false;
       }
       else
       {
         this.show_progress =false;
         this.show_brands = false;
         this.show_details = false;
+        this.flash_options = false;
       }
       this.current_window = msg.current_window;
 		});
@@ -93,27 +99,33 @@ export class AppComponent implements OnInit {
       this.show_progress =false;
       this.show_brands = true;
       this.show_details = false;
+      this.flash_options = false;
     }
     else if (this.current_window === 2) {
       this.show_progress = false;
       this.show_brands = false;
       this.show_details = true;
+      this.flash_options = false;
     }
     else if (this.current_window === 3) {
-      this.show_progress = true;
+      this.show_progress =false;
       this.show_brands = false;
       this.show_details = false;
+      this.flash_options = true;
     }
     else if (this.current_window === 4) {
-      this.show_progress = true;
+      this.show_progress = false;
       this.show_brands = false;
       this.show_details = false;
+      this.flash_options = true;
     }
+
     else
     {
       this.show_progress =false;
       this.show_brands = false;
       this.show_details = false;
+      this.flash_options = false;
     }
   }
   

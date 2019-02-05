@@ -1,0 +1,17 @@
+
+<h2>CHOOSE OPERATION</h2>
+
+<form >
+    <mat-selection-list #option>
+        <mat-list-option *ngFor="let flash_option of flash_options">
+          {{flash_option.name}}
+        </mat-list-option>
+      </mat-selection-list>
+      <p>
+          Options selected: {{option.selectedOptions.selected.length}}
+        </p>
+
+    <div class="example-button-row">
+        <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
+      </div>
+</form>
