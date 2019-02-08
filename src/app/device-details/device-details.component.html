@@ -1,17 +1,23 @@
 
 
-    <h2>Choose your model</h2>
+      <h2>Choose your model</h2>
     <form >
+        <table  id="flashcontent" >
+            <th></th>
+              <th>
     <mat-form-field>
             <mat-select placeholder="Gadget" (selectionChange)="onChange($event)" >
               <mat-option *ngFor="let device of devices" [value]="device.id">
                   {{device.model}}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+    </mat-form-field>
           <p></p>
           <div class="example-button-row" layout-align="center center" >
               <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
             </div>
+          </th>
+          <th></th>
+          </table>
     </form>
   

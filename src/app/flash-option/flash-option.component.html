@@ -1,6 +1,9 @@
 
-<h3>Select Operation</h3>
+<h2 >Select Operation</h2>
 <form >
+    <table  id="flashcontent" >
+        <th></th>
+          <th>
     <mat-selection-list #option>
         <mat-list-option *ngFor="let flash_option of flash_options">
           {{flash_option.name}}
@@ -10,4 +13,7 @@
           <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
         </div>
       Options selected: {{option.selectedOptions.selected.length}}
+    </th>
+    <th></th>
+    </table>
 </form>

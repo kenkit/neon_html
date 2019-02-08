@@ -26,3 +26,11 @@ h1 {
     background-color:#e423dd;
     color:black;
   }
+  table#flashcontent {
+    width:auto; 
+     border: 1px solid Peru;
+  }
+  th{
+    text-align:center; 
+    width:455px
+  }
