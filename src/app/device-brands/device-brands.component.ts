@@ -20,11 +20,11 @@ export class DeviceBrandsComponent implements OnInit {
     progress_val: 0,
     current_window:2
 	}
-  ngOnInit() {
-  }
   brands = BRANDS;
 
   selectedBrand: Brand;
+  ngOnInit() {
+  }
   
 onChange(event) {
   

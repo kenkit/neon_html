@@ -12,24 +12,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
   
 })
 export class AppComponent implements OnInit {
-  title = 'Neon';
-  progress: Observable<number>;
-  show_progress = false; 
-  show_brands = false;
-  show_details = false;
-  flash_options = false;
-  current_window = 1;
-  loading_message = "Connecting to service";
-  loading_bar_value = 0;
-  setprogress(val){
-     return new Observable<number>(observer => {
-      observer.next(val);
-    });
-    }
 
   constructor(private recvService: RecvService,private spinner: NgxSpinnerService) {
-		recvService.messages.subscribe(msg => {			
-      console.log("Response from websocket: " + msg);
+		  recvService.messages.subscribe(msg => {			
+      console.log('Response from websocket: ' + msg);
       this.progress = this.setprogress(msg.progress_val);
 
       if (msg.current_window === 1) {
@@ -81,6 +67,15 @@ export class AppComponent implements OnInit {
 		});
    
 	}
+  title = 'Neon';
+  progress: Observable<number>;
+  show_progress = false; 
+  show_brands = false;
+  show_details = false;
+  flash_options = false;
+  current_window = 1;
+  loading_message = 'Connecting to service';
+  loading_bar_value = 0;
 
 
 
@@ -90,7 +85,12 @@ export class AppComponent implements OnInit {
     progress_val: 0,
     current_window:2
 	}
-/*{"author":"tutorialedge","message":"","progress_val":1,"current_window":1} */
+  setprogress(val){
+     return new Observable<number>(observer => {
+      observer.next(val);
+    });
+    }
+/*{"author":"tutorialedge","message":"Loading statements","progress_val":30,"current_window":5}  */
   next() {
 
 		console.log('new message from client to websocket: ', this.devices_s);
