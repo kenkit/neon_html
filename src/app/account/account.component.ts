@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './User';
-import { WebsocketService } from './../websocket.service';
-import { RecvService } from './../recv.service';
+
 
 @Component({
   selector: 'app-account',
@@ -9,8 +8,12 @@ import { RecvService } from './../recv.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  show_bitpay = false;
+  iframeSrcUrl = "";
+  yt = '<iframe class="w-100" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  constructor() {
 
-  constructor(private recvService: RecvService) { }
+   }
   user: User = {
     id: 1,
     name: 'Kennedy Cheskaki',
@@ -21,7 +24,17 @@ export class AccountComponent implements OnInit {
 
   };
 
+
   ngOnInit() {
+  }
+  
+  add_bitcoins() {
+
+
+    this.show_bitpay = true;
+    this.iframeSrcUrl = "https://deaddevice.com/";
+    this.yt = '<iframe class="w-100" src="'+this.iframeSrcUrl+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    console.log('Loading iframed: ', this.iframeSrcUrl);
   }
 
 }

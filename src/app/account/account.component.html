@@ -1,5 +1,24 @@
-<h3>Account information for  {{user.username| lowercase}} </h3>
-<div><span>User Id: </span>{{user.id}}</div>
-<div><span>User: </span>{{user.username}}</div>
-<div><span>Email: </span>{{user.email}}</div>
-<div><span>Credits: </span>{{user.credits}}</div>
+<h3 >Account information for  {{user.username| lowercase}} </h3>
+<table style="width:400px" border="1px">
+        <tr>
+                <th></th>
+                <th></th> 
+        </tr>
+<td>       
+    <div><span>User Id: </span>{{user.id}}</div>
+    <div><span>User: </span>{{user.username}}</div>
+    <div><span>Email: </span>{{user.email}}</div>
+    <div><span>Credits: </span>{{user.credits}}</div>
+</td>
+
+    <td>
+        <div [hidden]="show_bitpay" class="example-button-row" layout-align="center center" >
+                <button   (click)="add_bitcoins()" matTooltipPosition="above" matTooltip="Buy credits through bitcoin" mat-button>Buy credits</button>
+        </div>
+        <div [hidden]="!show_bitpay"  [innerHTML]="yt | safe: 'html'">
+        
+        </div>
+    </td>
+
+
+</table>

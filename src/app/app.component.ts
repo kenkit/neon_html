@@ -4,6 +4,8 @@ import {  RecvService } from './recv.service';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+
 @Component({ 
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   providers: [ WebsocketService, RecvService  ]
   
 })
+  
 export class AppComponent implements OnInit {
 
   constructor(private recvService: RecvService,private spinner: NgxSpinnerService) {
@@ -24,22 +27,19 @@ export class AppComponent implements OnInit {
         this.show_brands = true;
         this.show_details = false;
         this.flash_options = false;
-      }
-      else if (msg.current_window === 2) {
+      } else if (msg.current_window === 2) {
         this.spinner.hide();
         this.show_progress = false;
         this.show_brands = false;
         this.show_details = true;
         this.flash_options = false;
-      }
-      else if (msg.current_window === 3) {
+      } else if (msg.current_window === 3) {
         this.spinner.hide();
         this.show_progress = false;
         this.show_brands = false;
         this.show_details = false;
         this.flash_options = true;
-      }
-      else if (msg.current_window === 4) {
+      } else if (msg.current_window === 4) {
         this.spinner.hide();
         this.show_progress =true;
         this.show_brands = false;
@@ -54,9 +54,7 @@ export class AppComponent implements OnInit {
         this.spinner.show();
         this.loading_message = msg.message;
         this.loading_bar_value = msg.progress_val;
-      }
-      else
-      {
+      } else {
         this.spinner.show();
         this.show_progress =false;
         this.show_brands = false;
@@ -73,6 +71,8 @@ export class AppComponent implements OnInit {
   show_brands = false;
   show_details = false;
   flash_options = false;
+
+
   current_window = 1;
   loading_message = 'Connecting to service';
   loading_bar_value = 0;
@@ -83,9 +83,9 @@ export class AppComponent implements OnInit {
 		author: 'tutorialedge',
     message: 'this is a test message',
     progress_val: 0,
-    current_window:2
+    current_window: 2
 	}
-  setprogress(val){
+  setprogress(val) {
      return new Observable<number>(observer => {
       observer.next(val);
     });
@@ -99,7 +99,9 @@ export class AppComponent implements OnInit {
     this.devices_s.current_window++;
     if (this.devices_s.current_window > 5)
     this.devices_s.current_window = 1;
+    
   }
+
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
@@ -116,28 +118,22 @@ export class AppComponent implements OnInit {
       this.show_brands = true;
       this.show_details = false;
       this.flash_options = false;
-    }
-    else if (this.current_window === 2) {
+    } else if (this.current_window === 2) {
       this.show_progress = false;
       this.show_brands = false;
       this.show_details = true;
       this.flash_options = false;
-    }
-    else if (this.current_window === 3) {
+    } else if (this.current_window === 3) {
       this.show_progress =false;
       this.show_brands = false;
       this.show_details = false;
       this.flash_options = true;
-    }
-    else if (this.current_window === 4) {
+    } else if (this.current_window === 4) {
       this.show_progress = false;
       this.show_brands = false;
       this.show_details = false;
       this.flash_options = true;
-    }
-
-    else
-    {
+    } else {
       this.show_progress =false;
       this.show_brands = false;
       this.show_details = false;

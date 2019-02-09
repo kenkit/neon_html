@@ -10,7 +10,9 @@ import { ProgressComponent } from './progress/progress.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DeviceDetailsComponent } from './device-details/device-details.component';
 import { DeviceBrandsComponent } from './device-brands/device-brands.component';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SafePipe } from './safe.pipe';
+
 import {
   MatButtonModule,
   MatMenuModule,
@@ -26,13 +28,14 @@ import {
   MatProgressBarModule
 } from '@angular/material';
 import { FlashOptionComponent } from './flash-option/flash-option.component';
-import { AccountComponent } from './account/account.component';
+import { AccountComponent} from './account/account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressComponent,
-    DeviceDetailsComponent ,DeviceBrandsComponent, FlashOptionComponent, AccountComponent
+    DeviceDetailsComponent, DeviceBrandsComponent, FlashOptionComponent, AccountComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { AccountComponent } from './account/account.component';
     MatInputModule,
     MatCheckboxModule,
     MatListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    
   ],
   providers: [ ],
   bootstrap: [AppComponent]

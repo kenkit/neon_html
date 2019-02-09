@@ -21,7 +21,7 @@ export class FlashOptionComponent implements OnInit {
 		author: 'brands',
     message: '',
     progress_val: 0,
-    current_window: 4
+    current_window: 4,
   };
   constructor(private recvService: RecvService) { }
   selectedOption: flash_option;

@@ -5,10 +5,10 @@ import { WebsocketService } from './websocket.service';
 const CHAT_URL = 'ws://localhost:9999';
 
 export interface Message {
-	author: string,
-	message: string,
-	progress_val: number,
-	current_window:number
+	author: string;
+	message: string;
+	progress_val: number;
+	current_window: number;
 }
 
 @Injectable()
@@ -20,13 +20,13 @@ export class RecvService {
 		this.messages = <Subject<Message>>wsService
 			.connect(CHAT_URL)
 			.map((response: MessageEvent): Message => {
-				let data = JSON.parse(response.data);
+				const data = JSON.parse(response.data);
 				return {
 					author: data.author,
 					message: data.message,
 					progress_val: data.progress_val,
 					current_window: data.current_window
-				}
+				};
 			});
 	}
 }
