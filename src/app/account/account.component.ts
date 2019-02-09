@@ -13,7 +13,7 @@ export class AccountComponent implements OnInit {
   iframeSrcUrl = "";
   private devices_s = {
 		author: 'brands',
-    message: 'https://deaddevice.com',
+    message: '',
     progress_val: 0,
     current_window:10
 	}
