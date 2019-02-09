@@ -28,7 +28,7 @@ h1 {
   }
   table#flashcontent {
     width:auto; 
-     border: 1px solid Peru;
+     border: none;
   }
   th{
     text-align:center; 

@@ -24,6 +24,14 @@
     </ng-template>
   </ngb-tab>
   <ngb-tab [disabled]="false">
+      <ng-template ngbTabTitle><b>Account|Credits</b></ng-template>
+      <ng-template ngbTabContent>
+        <div id="prgsize"style="height: 300px; background-color:#007bff;" >
+            <app-account></app-account>
+          </div>
+      </ng-template>
+    </ngb-tab>
+  <ngb-tab [disabled]="false">
     <ng-template ngbTabTitle><b>About Neon</b></ng-template>
     <ng-template ngbTabContent>
       <div id="prgsize"style="height: 300px; background-color:#007bff;" >

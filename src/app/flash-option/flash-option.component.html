@@ -1,19 +1,25 @@
 
 <h2 >Select Operation</h2>
 <form >
-    <table  id="flashcontent" >
+    <table  id="flashcontent">
         <th></th>
           <th>
-    <mat-selection-list #option>
-        <mat-list-option *ngFor="let flash_option of flash_options">
-          {{flash_option.name}}
-        </mat-list-option>
-      </mat-selection-list>
+              <mat-form-field >
+      <mat-select (selectionChange)="onChange($event)" matTooltipPosition="right" matTooltip="Choose the manufacturer e.g Techno"  placeholder="Choose operation">
+          <mat-option *ngFor="let flash_option of flash_options" [value]="flash_option.id" name="flash_option_sl">
+            {{flash_option.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>  
       <div class="example-button-row" layout-align="center center" >
-          <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Next</button>
+          <button   (click)="next()" matTooltipPosition="above" matTooltip="Press next to continue" mat-button>Flash</button>
         </div>
-      Options selected: {{option.selectedOptions.selected.length}}
-    </th>
-    <th></th>
-    </table>
+      </th>
+      <th></th>
+      </table>
+    <div *ngIf="selectedOption">Operation {{selectedOption.id}} by  {{selectedOption.username}}</div>
+    <div *ngIf="selectedOption" >ID: {{selectedOption.id}}</div>
+    <div *ngIf="selectedOption" >Author: {{selectedOption.username}}</div>
+    <div *ngIf="selectedOption">Confirmed: {{selectedOption.worked+selectedOption.failed}}</div>
+    <div *ngIf="selectedOption" >Worked:{{selectedOption.worked}} Failed:{{selectedOption.failed}}</div>
 </form>

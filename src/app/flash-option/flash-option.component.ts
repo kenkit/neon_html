@@ -1,4 +1,4 @@
-import { Component,ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { flash_option } from './flash_option';
 import { FLASHOPTIONS } from './flash-option-mock';
 import { WebsocketService } from './../websocket.service';
@@ -11,8 +11,8 @@ import { MatSelectionList, MatSelectionListChange, MatListOption }  from '@angul
   templateUrl: './flash-option.component.html',
   styleUrls: ['./flash-option.component.css']
 })
-  
-  
+
+
 export class FlashOptionComponent implements OnInit {
   @ViewChild(MatSelectionList) option: MatSelectionList;
   flash_options = FLASHOPTIONS;
@@ -21,29 +21,24 @@ export class FlashOptionComponent implements OnInit {
 		author: 'brands',
     message: '',
     progress_val: 0,
-    current_window:4
-  }
-  
+    current_window: 4
+  };
   constructor(private recvService: RecvService) { }
   selectedOption: flash_option;
 
   ngOnInit() {
-    this.option.selectionChange.subscribe((s: MatSelectionListChange) => {          
 
-      this.option.deselectAll();
-      s.option.selected = true;
-      console.log(s.option);
-      /*this.selectedOption =   flash_optionsthis.option.selectedOptions.selected;*/
-  });
+  }
+  onChange(event) {
+  
+    this.selectedOption = this.flash_options[event.source.value - 1];
+    console.log(this.selectedOption);
   }
 
-  
-
-
   next() {
-    console.log('new message from device brands : ', this.devices_s);
+    console.log('new message from flash_options : ', this.devices_s);
     this.recvService.messages.next(this.devices_s);
-    this.devices_s.message =''/**JSON.stringify(this.selectedBrand) */;
+    this.devices_s.message = ''/**JSON.stringify(this.selectedBrand) */;
   }
 
 }

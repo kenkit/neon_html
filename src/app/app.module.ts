@@ -26,12 +26,13 @@ import {
   MatProgressBarModule
 } from '@angular/material';
 import { FlashOptionComponent } from './flash-option/flash-option.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressComponent,
-    DeviceDetailsComponent ,DeviceBrandsComponent, FlashOptionComponent
+    DeviceDetailsComponent ,DeviceBrandsComponent, FlashOptionComponent, AccountComponent
   ],
   imports: [
     BrowserModule,
