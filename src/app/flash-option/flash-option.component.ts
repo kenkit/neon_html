@@ -18,7 +18,7 @@ export class FlashOptionComponent implements OnInit {
   flash_options = FLASHOPTIONS;
 
   private devices_s = {
-		author: 'brands',
+    author: 'brands',
     message: '',
     progress_val: 0,
     current_window: 4,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './User';
 import { WebsocketService } from './../websocket.service';
-import { RecvService } from './../recv.service';
+import {  RecvService } from './../recv.service';
 
 @Component({
   selector: 'app-account',
@@ -18,8 +18,8 @@ export class AccountComponent implements OnInit {
     current_window:10
 	}
   yt = '<iframe class="w-100" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-  constructor(private recvService: RecvService) {
-    recvService.messages.subscribe(msg => {		
+  constructor(private reccv:  RecvService) {
+    reccv.messages.subscribe(msg => {		
       if (msg.current_window === 10)
       {
         this.show_bitpay = true;
@@ -46,7 +46,7 @@ export class AccountComponent implements OnInit {
   
   add_bitcoins() {
 
-    this.recvService.messages.next(this.devices_s);
+   this.reccv.messages.next(this.devices_s);
     console.log('Loading iframed: ', this.iframeSrcUrl);
   }
 

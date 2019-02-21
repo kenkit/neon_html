@@ -14,8 +14,7 @@ export interface Message {
 @Injectable()
 export class RecvService {
 
-  public messages: Subject<Message>;
-
+	public messages: Subject<Message>;
 	constructor(wsService: WebsocketService) {
 		this.messages = <Subject<Message>>wsService
 			.connect(CHAT_URL)

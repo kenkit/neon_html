@@ -44,7 +44,6 @@ import { AccountComponent} from './account/account.component';
     NgbModule.forRoot(),
     NgxSpinnerModule,
 
-    
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,

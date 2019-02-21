@@ -6,18 +6,16 @@ import { FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 
-@Component({ 
+@Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [ WebsocketService, RecvService  ]
-  
 })
-  
 export class AppComponent implements OnInit {
 
-  constructor(private recvService: RecvService,private spinner: NgxSpinnerService) {
-		  recvService.messages.subscribe(msg => {			
+  constructor(private recvService: RecvService, private spinner: NgxSpinnerService) {
+    recvService.messages.subscribe(msg => {			
       console.log('Response from websocket: ' + msg);
       this.progress = this.setprogress(msg.progress_val);
 
@@ -62,7 +60,7 @@ export class AppComponent implements OnInit {
         this.flash_options = false;
       }
       this.current_window = msg.current_window;
-		});
+    });
    
 	}
   title = 'Neon';
@@ -96,9 +94,6 @@ export class AppComponent implements OnInit {
 		console.log('new message from client to websocket: ', this.devices_s);
 		this.recvService.messages.next(this.devices_s);
 		this.devices_s.message = '';
-    this.devices_s.current_window++;
-    if (this.devices_s.current_window > 5)
-    this.devices_s.current_window = 1;
     
   }
 
