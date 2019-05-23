@@ -1,9 +1,7 @@
 // src/js/reducers/index.js
-const initialState = {
-  articles: []
-};
-function rootReducer(state = initialState, action) {
-    console.log(state);
+
+function rootReducer(state, action) {
+  console.log("Received data:"+action.payload)
   return state;
-};
-export default rootReducer;
+}
+export default rootReducer; 

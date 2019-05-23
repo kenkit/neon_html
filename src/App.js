@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import store from './store/store'
 import './App.css';
-const FOO = 'FOO';
+const FOO = 'HAHAHA';
 
 function Bar() {
     return {
@@ -15,7 +15,7 @@ function Bar() {
     };
 } 
 function App() {
-  store.dispatch(Bar());
+ 
   return (
     <div className="App">
       <header className="App-header">
