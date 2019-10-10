@@ -71,7 +71,8 @@ build_script:
     dir Release
         
 artifacts:
-- path: 'neon_html_pub\build\Release\**\*.zip'
+- path: 'neon_html_pub\build\Release\neon.zip'
+    name: neon.zip
   
 before_deploy:
 - ps: >-
@@ -96,8 +97,9 @@ before_deploy:
 - provider: GitHub
   description: $(release_description)
   auth_token:
-    secure: qQmfsw4C+uU33SkpLk3Y3zgc31VVt7ruA2bIvdyxfkViHCHdwqYnGhp/sGXO1vK1
-  artifact: neon.zip
-  on:
-    branch: master                 # release from master branch only
+    secure: ZlxMF5j3fQ1A23Dll4pGEaeffXzK1TGRtEtCux/LtsQF2iDJqmLEMal0pJawXLfa
   repository: kenkit/neon_html
+  artifact: neon.zip
+  draft: true
+  prerelease: true
+  force_update: true
