@@ -70,9 +70,6 @@ build_script:
 
     dir Release
         
-on_finish:
-  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path C:\projects\neon-service\neon_service\build\$($env:BUILD_TYPE)\tests.xml))
-  
 artifacts:
 - path: '**\*.zip' 
   
