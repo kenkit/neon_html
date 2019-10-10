@@ -72,9 +72,11 @@ build_script:
 
     dir Release
         
+on_finish:
+  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path C:\projects\neon-service\neon_service\build\$($env:BUILD_TYPE)\tests.xml))
+  
 artifacts:
-- path: 'neon_service/build/*.msi' 
-  name: NeonServiceInstaller-win32.msi
+- path: '**\*.zip' 
   
 before_deploy:
 - ps: >-
@@ -100,7 +102,7 @@ before_deploy:
   description: $(release_description)
   auth_token:
     secure: qQmfsw4C+uU33SkpLk3Y3zgc31VVt7ruA2bIvdyxfkViHCHdwqYnGhp/sGXO1vK1
-  artifact: neon_html_pub/build/Release/neon.zip
+  artifact: /.*\.zip/   
   on:
     branch: master                 # release from master branch only
   repository: kenkit/neon_html
