@@ -31,6 +31,8 @@ build_script:
     curl -fsS -o 7z1900.msi "http://sourceforge.mirrorservice.org/s/se/sevenzip/7-Zip/19.00/7z1900.msi"
     
     start /wait msiexec.exe /i 7z1900.msi  /qb
+
+    set PATH=%PATH%;%localappdata%\Keybase\
     
     keybase -v
     
