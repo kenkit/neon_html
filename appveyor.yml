@@ -92,7 +92,7 @@ before_deploy:
 
     Set-AppveyorBuildVariable -Name release_description -Value $rnc
 
-  deploy:
+deploy:
 - provider: GitHub
   auth_token:
     secure: ZlxMF5j3fQ1A23Dll4pGEaeffXzK1TGRtEtCux/LtsQF2iDJqmLEMal0pJawXLfa
