@@ -94,6 +94,7 @@ before_deploy:
 
 deploy:
 - provider: GitHub
+  description: $(release_description)
   auth_token:
     secure: ZlxMF5j3fQ1A23Dll4pGEaeffXzK1TGRtEtCux/LtsQF2iDJqmLEMal0pJawXLfa
   repository: kenkit/neon_html
