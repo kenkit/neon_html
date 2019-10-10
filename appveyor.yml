@@ -103,7 +103,7 @@ before_deploy:
   description: $(release_description)
   auth_token:
     secure: qQmfsw4C+uU33SkpLk3Y3zgc31VVt7ruA2bIvdyxfkViHCHdwqYnGhp/sGXO1vK1
-  artifact: /.*\.msi/
+  artifact: /.*\neon.zip/
   on:
     branch: master                 # release from master branch only
-  repository: kenkit/neon_service
+  repository: kenkit/neon_html
