@@ -43,14 +43,12 @@ build_script:
     ping -n 4 127.0.0.1>nul
     
     call keybase oneshot -u kenkit --paperkey "%paperkey%"
-
-    cd ../
     
     set ROOT=%cd%
     
     set OPENSSL_ROOT_DIR=C:\OpenSSL-Win32\
     
-    cd %ROOT%
+    REM cd %ROOT%
     
     git config --global --add protocol.keybase.allow always
 
