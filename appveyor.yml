@@ -71,8 +71,7 @@ build_script:
     dir Release
         
 artifacts:
-- path: 'neon_html_pub\build\Release\**\*.zip'
-    name: neon.zip
+- path: 'neon_html_pub\build\Release\neon.zip'
   
 before_deploy:
 - ps: >-
