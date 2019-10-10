@@ -1,0 +1,107 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+skip_tags: true
+build:
+  verbosity: minimal
+image: Visual Studio 2017
+max_jobs: 1
+environment:
+ global:
+  APPVEYOR_CACHE_ENTRY_ZIP_ARGS: "-t7z -m0=lzma -mx=3"
+  paperkey:
+    secure: MxOJZPR1tTkos0f/z1rM4fjHtWmg4kR3B6uAz8u59R5uDteHyeOSFYwATBPonHVC8oSKAWyrtma2Krk1fIXPMJs+FizIDsxh8VhsgMaeNnU=
+  password:
+    secure: RjmtameUusXhisMaJSPfbg==
+  CPACK_WIX_UPGRADE_GUID_NEON_SERVICE:
+    secure: /6AJvIijLn47fUeeEddoPgAE6a9FBYtqEw3qMySIUTuZ5ANkeoBq7p9yUifoznXN
+  NEON_SYMBOL_TOKEN:
+    secure: D5GFM8bHtAsmjKtrzJzKHhgcLeqB/enm0hsltQgjFC83ZSq5mtXGApy29StF8JfT/p2LY+bsuHKQcPSbbT8Tp9DyF8PpO1Q9StdvREJQnx7blBuN0Q3s8RvrNLJWtGyeK7TDszq3QJ3VhzsjQd3Vnc6TWly/X27yP+WeNG7wsA0=
+  QTAPP_SYMBOL_TOKEN:
+    secure: D5GFM8bHtAsmjKtrzJzKHhgcLeqB/enm0hsltQgjFC83ZSq5mtXGApy29StF8JfTcpvKU/+y2P9Uh2wr1oWBY8jsJw1UsGP7GLkUEKGPxH/V/9j8z+fRpdN3PqS/gznLoym7/VPDKUPVwMAnP2AffZ/BBc7Hu4bRhk3pEaf/ubk=
+cache:
+-  C:\projects\qt-everywhere-opensource-src-4.8.7\ -> appveyor.yml    
+build_script:
+- cmd: >-
+    curl -fsS -o keybase_setup_amd64.msi "https://prerelease.keybase.io/keybase_setup_amd64.msi"
+    
+    start /wait msiexec.exe /i keybase_setup_amd64.msi   /quiet /l*v keybase.log
+    
+    curl -fsS -o 7z1900.msi "http://sourceforge.mirrorservice.org/s/se/sevenzip/7-Zip/19.00/7z1900.msi"
+    
+    start /wait msiexec.exe /i 7z1900.msi  /qb
+    
+    keybase -v
+    
+    REM type keybase.log
+    
+    echo "loging in to keybase"
+    
+    ping -n 4 127.0.0.1>nul
+    
+    call keybase oneshot -u kenkit --paperkey "%paperkey%"
+
+    cd ../
+    
+    set ROOT=%cd%
+    
+    set OPENSSL_ROOT_DIR=C:\OpenSSL-Win32\
+    
+    cd %ROOT%
+    
+    git config --global --add protocol.keybase.allow always
+
+    git clone keybase://private/kenkit/neon_html
+    
+    cd neon_html 
+    
+    git submodule update --init --recursive
+
+    mkdir build
+    
+    cd build
+
+    cmake ../ -DCMAKE_BUILD_TYPE=Release -DBOOST_ROOT=C:\Libraries\boost_1_67_0 
+    
+    cmake --build ../build --config Release
+
+    REM cmake --build ../build --config %BUILD_TYPE% -j 2 --target Install
+
+    dir Release
+        
+on_finish:
+  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path C:\projects\neon-service\neon_service\build\$($env:BUILD_TYPE)\tests.xml))
+  
+artifacts:
+- path: 'neon_service/build/*.msi' 
+  name: NeonServiceInstaller-win32.msi
+  
+before_deploy:
+- ps: >-
+    echo "NEON HTML CHANGELOG"  | Add-Content  -Encoding UTF8 -Path tmp
+
+    echo "************************"  | Add-Content  -Encoding UTF8 -Path tmp
+
+    git log -10   --pretty="%aD--%B" |Add-Content  -Encoding UTF8 -Path tmp
+
+    $currntly=(Resolve-Path .\).Path
+
+    cd $currntly
+
+    $rnp = Resolve-Path("tmp")
+
+    $rnc = [IO.File]::ReadAllText($rnp)
+
+    Set-AppveyorBuildVariable -Name release_description -Value $rnc
+
+
+  deploy:
+- provider: GitHub
+  description: $(release_description)
+  auth_token:
+    secure: qQmfsw4C+uU33SkpLk3Y3zgc31VVt7ruA2bIvdyxfkViHCHdwqYnGhp/sGXO1vK1
+  artifact: /.*\.msi/
+  on:
+    branch: master                 # release from master branch only
+  repository: kenkit/neon_service
