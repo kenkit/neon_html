@@ -54,9 +54,9 @@ build_script:
     
     git config --global --add protocol.keybase.allow always
 
-    git clone keybase://private/kenkit/neon_html
+    git clone keybase://private/kenkit/neon_html_pub
     
-    cd neon_html 
+    cd neon_html_pub
     
     git submodule update --init --recursive
 
