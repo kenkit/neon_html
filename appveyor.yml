@@ -66,7 +66,7 @@ build_script:
 
     cmake ../ -DCMAKE_BUILD_TYPE=Release -DBOOST_ROOT=C:\Libraries\boost_1_67_0 
     
-    cmake --build ../build --config Release
+    cmake --build ../build --config Release --target compres_neon_html
 
     REM cmake --build ../build --config %BUILD_TYPE% -j 2 --target Install
 
