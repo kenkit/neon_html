@@ -98,6 +98,3 @@ deploy:
     secure: ZlxMF5j3fQ1A23Dll4pGEaeffXzK1TGRtEtCux/LtsQF2iDJqmLEMal0pJawXLfa
   repository: kenkit/neon_html
   artifact: neon.zip
-  draft: true
-  prerelease: true
-  force_update: true
