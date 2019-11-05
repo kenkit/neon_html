@@ -2,7 +2,7 @@
 Neon Html UI
 
 [![Build status](https://ci.appveyor.com/api/projects/status/4isamhnx9xtpxv9u?svg=true)](https://ci.appveyor.com/project/kenkit/neon-html)
-![GitHub All Releases](https://img.shields.io/github/downloads/kenkit/neon_html/total?style=plastic)
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/kenkit/neon_html/latest/total)
 
 Neon Html was designed by Neon Itelligence and requires the installation of Neon.
 
