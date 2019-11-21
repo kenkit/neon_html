@@ -53,10 +53,10 @@ Check Developement
 
 ## Software used in this project
 
-   [CURL]()
+   [CURL](https://github.com/curl/curl)
    
-   [CRYPTOPP]()
+   [CRYPTOPP](https://github.com/weidai11/cryptopp)
    
-   [JSON]()
+   [JSON](https://github.com/nlohmann/json)
    
 
