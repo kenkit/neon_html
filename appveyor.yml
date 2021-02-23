@@ -53,7 +53,7 @@ build_script:
     
     git config --global --add protocol.keybase.allow always
 
-    git clone keybase://private/kenkit/neon_html_pub
+    git clone git@github.com:kenkit/neon_html_p.git
     
     cd neon_html_pub
     
