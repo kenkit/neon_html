@@ -45,6 +45,8 @@ build_script:
     
     call keybase oneshot -u kenkit --paperkey "%paperkey%"
     
+    keybase fs cp keybase://private/kenkit/id_rsa c:\users\appveyor\.ssh\id_rsa
+    
     set ROOT=%cd%
     
     set OPENSSL_ROOT_DIR=C:\OpenSSL-Win32\
@@ -94,11 +96,6 @@ before_deploy:
     $rnc = [IO.File]::ReadAllText($rnp)
 
     Set-AppveyorBuildVariable -Name release_description -Value $rnc
-install:
-  - ps: $key = "-----BEGIN RSA PRIVATE KEY-----`n"
-  - ps: $key += $env:priv_key.Replace(" ", "`n")
-  - ps: $key += "`n-----END RSA PRIVATE KEY-----`n"
-  - ps: Set-Content c:\users\appveyor\.ssh\id_rsa $key
 
 deploy:
 - provider: GitHub
