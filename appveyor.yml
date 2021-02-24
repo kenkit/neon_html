@@ -57,7 +57,7 @@ build_script:
 
     git clone git@github.com:kenkit/neon_html_p.git
     
-    cd neon_html_pub
+    cd neon_html_p
     
     git submodule update --init --recursive
 
@@ -74,7 +74,7 @@ build_script:
     dir Release
         
 artifacts:
-- path: 'neon_html_pub\build\Release\neon.zip'
+- path: 'neon_html_p\build\Release\neon.zip'
   name: neon.zip
   
 before_deploy:
