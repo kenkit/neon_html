@@ -31,6 +31,8 @@ build_script:
 
     start /wait msiexec.exe /i 7z1900.msi  /qb
 
+    REM ENCYRYPTED WITH:gpg -c --batch --passphrase "" id_rsa
+
     echo "Output to %userprofile%\.ssh\id_rsa"
     
     echo  > fl
