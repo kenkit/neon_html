@@ -39,8 +39,6 @@ build_script:
     
     "C:\Program Files\Git\usr\bin\gpg.exe" --pinentry-mode loopback --passphrase "%priv_key%"  -d id_rsa.gpg > %userprofile%\.ssh\id_rsa  
 
-    git clone git@github.com:kenkit/neon_html_p.git
-    
     cd neon_html_p
     
     git submodule update --init --recursive
