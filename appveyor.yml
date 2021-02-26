@@ -63,7 +63,7 @@ artifacts:
   
 before_deploy:
 - ps: >-
-    cd ../neon_html
+    cd ../neon_html_c
 
     echo "NEON HTML CHANGELOG"  | Add-Content  -Encoding UTF8 -Path tmp
 
