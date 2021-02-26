@@ -1,3 +1,4 @@
 [submodule "neon_html_p"]
 	path = neon_html_p
 	url = git@github.com:kenkit/neon_html_p.git
+	shallow = true
