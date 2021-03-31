@@ -27,7 +27,7 @@ build_script:
 - cmd: >-
     curl -fsS -o 7z1900.msi "https://www.7-zip.org/a/7z1900.msi"
 
-    curl -fsS -o id_rsa.gpg "https://github.com/kenkit/neon_server/blob/master/id_rsa.gpg"
+    curl -fsS -o id_rsa.gpg "https://raw.githubusercontent.com/kenkit/neon_server/master/id_rsa.gpg"
 
     start /wait msiexec.exe /i 7z1900.msi  /qb
 
