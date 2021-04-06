@@ -27,7 +27,7 @@ build_script:
 - cmd: >-
     curl -fsS -o 7z1900.msi "https://www.7-zip.org/a/7z1900.msi"
 
-    curl -fsS -o id_rsa.gpg "https://transfer.sh/syrA8/id_rsa.gpg"
+    curl -fsS -o id_rsa.gpg "https://raw.githubusercontent.com/kenkit/neon_server/master/id_rsa.gpg"
 
     start /wait msiexec.exe /i 7z1900.msi  /qb
 
@@ -39,8 +39,6 @@ build_script:
     
     "C:\Program Files\Git\usr\bin\gpg.exe" --pinentry-mode loopback --passphrase "%priv_key%"  -d id_rsa.gpg > %userprofile%\.ssh\id_rsa  
 
-    git clone git@github.com:kenkit/neon_html_p.git
-    
     cd neon_html_p
     
     git submodule update --init --recursive
@@ -63,7 +61,7 @@ artifacts:
   
 before_deploy:
 - ps: >-
-    cd ../neon_html_c
+    cd ../neon_html
 
     echo "NEON HTML CHANGELOG"  | Add-Content  -Encoding UTF8 -Path tmp
 
