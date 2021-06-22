@@ -83,6 +83,6 @@ deploy:
 - provider: GitHub
   description: $(release_description)
   auth_token:
-    secure: ZlxMF5j3fQ1A23Dll4pGEaeffXzK1TGRtEtCux/LtsQF2iDJqmLEMal0pJawXLfa
+    secure: yh1wDhZZCbVLrjgl513X07jhtEBO4BZ+cQta5jiihXqY6u3120wFKey/EwWZVq01
   repository: kenkit/neon_html
   artifact: neon.zip 
