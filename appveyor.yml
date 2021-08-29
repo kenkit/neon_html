@@ -25,11 +25,11 @@ cache:
 -  C:\projects\qt-everywhere-opensource-src-4.8.7\ -> appveyor.yml    
 build_script:
 - cmd: >-
-    curl -fsS -o 7z1900.msi "https://www.7-zip.org/a/7z1900.msi"
+    REM curl -fsS -o 7z1900.msi "https://www.7-zip.org/a/7z1900.msi"
 
     curl -fsS -o id_rsa.gpg "https://raw.githubusercontent.com/kenkit/neon_server/master/id_rsa.gpg"
 
-    start /wait msiexec.exe /i 7z1900.msi  /qb
+    REM start /wait msiexec.exe /i 7z1900.msi  /qb
 
     REM ENCYRYPTED WITH:gpg -c --batch --passphrase "" id_rsa
 
