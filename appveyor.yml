@@ -47,7 +47,7 @@ build_script:
     
     cd build
 
-    cmake ../ -DCMAKE_BUILD_TYPE=Release -DBOOST_ROOT=C:\Libraries\boost_1_71_0 -A Win32 
+    cmake ../ -DCMAKE_BUILD_TYPE=Release -DBOOST_ROOT=C:\Libraries\boost_1_71_0 -A Win32 -DBoost_INCLUDE_DIR=C:\Libraries\boost_1_71_0 
     
     cmake --build ../build --config Release --target compres_neon_html
 
